@@ -37,9 +37,9 @@ function Login() {
     }
   };
   return (
-    <div className="flex justify-center py-12 px-4  h-[95vh] overflow-y-auto  dark:bg-black  items-center   ">
+    <div className="flex justify-center py-12 px-4 h-[76vh]  md:h-[95vh] overflow-y-auto  dark:bg-black  items-center   ">
       <section className=" w-full max-w-xl ">
-        <h1 className="text-black md:text-[40px] text-xl mb-4 font-bold dark:text-white tracking-[-1px]">
+        <h1 className="text-black md:text-[40px] text-2xl mb-5 font-bold dark:text-white tracking-[-1px]">
           Welcome to Waveel Pos
         </h1>
         <p className="mb-6 text-gray-600 dark:text-gray-300">
