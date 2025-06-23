@@ -6,13 +6,18 @@ import { toast } from "sonner";
 import { toastErrorcolor, toastSuccesscolor } from "../util/toastcol";
 import { MdEmail } from "react-icons/md";
 import type { FormData } from "../util/types";
+import Forgetpassword from "../components/Forgetpassword";
 
 function Login() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [forgetpassword, setForgetpassword] = useState<boolean>(false);
 
   //password shit
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
+  };
+  const toggleforget = () => {
+    setForgetpassword((prev) => !prev);
   };
   const {
     register,
@@ -37,7 +42,7 @@ function Login() {
     }
   };
   return (
-    <div className="flex justify-center py-12 px-4 h-[76vh]  md:h-[95vh] overflow-y-auto  dark:bg-black  items-center   ">
+    <div className="flex justify-center py-12 px-4 h-screen overflow-y-auto  dark:bg-black  items-center   ">
       <section className=" w-full max-w-xl ">
         <h1 className="text-black md:text-[40px] text-2xl mb-5 font-bold dark:text-white tracking-[-1px]">
           Welcome to Waveel Pos
@@ -94,10 +99,19 @@ function Login() {
               )}
             </button>
           </div>
+          <p
+            onClick={toggleforget}
+            role="button"
+            className="dark:text-blue-200 text-gray-600  cursor-pointer">
+            Forget password
+          </p>
+          {forgetpassword && (
+            <Forgetpassword setForgetPassword={setForgetpassword} />
+          )}
 
           <button
             type="submit"
-            className="bg-black cursor-pointer font-[600] w-full dark:bg-white dark:text-black text-white px-4 text-sm py-2 rounded">
+            className="bg-black cursor-pointer font-[600] w-full dark:bg-white dark:text-black text-white px-4 text-sm py-4 rounded">
             {" "}
             Login in
           </button>

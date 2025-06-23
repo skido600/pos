@@ -39,7 +39,7 @@ function Signup() {
   };
 
   return (
-    <div className="flex justify-center py-12 px-4 h-[82vh]  md:h-[95vh] overflow-y-auto dark:bg-black items-center">
+    <div className="flex justify-center py-12 px-4 h-[82vh] h-screen overflow-y-auto dark:bg-black items-center">
       <section className="w-full max-w-xl">
         <h1 className="text-black md:text-[40px] text-2xl mb-4 font-bold dark:text-white tracking-[-1px]">
           Register to Waveel Pos
@@ -115,7 +115,7 @@ function Signup() {
 
           <button
             type="submit"
-            className="bg-black cursor-pointer font-[600] w-full dark:bg-white dark:text-black text-white px-4 text-sm py-2 rounded">
+            className="bg-black cursor-pointer font-[600] w-full dark:bg-white  dark:text-black text-white px-4 text-sm py-4 rounded">
             Signup
           </button>
 
