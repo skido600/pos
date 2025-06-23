@@ -39,7 +39,7 @@ function Forgetpassword({ setForgetPassword }: Props) {
   };
   return (
     <section className="fixed inset-0 flex items-center justify-center bg-opacity-50 z-30 backdrop-blur-sm">
-      <div className="p-6 rounded-xl shadow-lg w-full max-w-md bg-[#333446] md:mx-20 mx-4">
+      <div className="p-6 rounded-xl shadow-lg w-full max-w-md bg-black md:mx-20 mx-4">
         <h2 className="text-2xl font-semibold mb-4 text-white">
           Forgot Password
         </h2>
@@ -61,7 +61,7 @@ function Forgetpassword({ setForgetPassword }: Props) {
 
           <button
             type="submit"
-            className="bg-black cursor-pointer font-[600] w-full dark:bg-white dark:text-black text-white px-4 text-sm py-2 rounded">
+            className=" cursor-pointer font-[600] w-full bg-white dark:text-black text-black px-4 text-sm py-2 rounded">
             Send Reset Link
           </button>
         </form>
