@@ -14,6 +14,10 @@ const Signup = lazy(() => import("./pages/Signup.tsx"));
 
 //adminlayout
 const Admin = lazy(() => import("./pages/Admin.tsx"));
+const AllProduct = lazy(() => import("./pages/AllProduct.tsx"));
+const Avaliable_Product = lazy(() => import("./pages/Avaliable_Product.tsx"));
+const Market = lazy(() => import("./pages/Market.tsx"));
+const Stock = lazy(() => import("./pages/Stock.tsx"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +43,22 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <Admin />,
+      },
+      {
+        path: "/all",
+        element: <AllProduct />,
+      },
+      {
+        path: "/avalable",
+        element: <Avaliable_Product />,
+      },
+      {
+        path: "/market",
+        element: <Market />,
+      },
+      {
+        path: "/stock",
+        element: <Stock />,
       },
     ],
   },

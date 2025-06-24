@@ -1,13 +1,21 @@
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
+import Sidebar from "../components/Sidebar";
+import Topnav from "../components/Topnav";
+import { NavProvider } from "../context/Navcontext";
+import AuthLoader from "../Helper/AuthLoader";
+
 function AdminLayout() {
   return (
-    <div>
-      <h1>Admin Panel</h1>
-      <Suspense fallback={<div>Loading admin page...</div>}>
-        <Outlet />
-      </Suspense>
-    </div>
+    <NavProvider>
+      <div>
+        <Sidebar />
+        <Suspense fallback={<AuthLoader />}>
+          <Topnav />
+          <Outlet />
+        </Suspense>
+      </div>
+    </NavProvider>
   );
 }
 

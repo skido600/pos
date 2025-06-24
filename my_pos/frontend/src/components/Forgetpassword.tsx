@@ -47,7 +47,7 @@ function Forgetpassword({ setForgetPassword }: Props) {
           Enter your email address and we’ll send you a link to reset your
           password.
         </p>
-        <form className="space-y-4" onSubmit={handleSubmit}>
+        <div className="space-y-4">
           <div className="relative">
             <MdEmail className="absolute text-white top-1/2 left-3 transform -translate-y-1/2" />
             <input
@@ -61,10 +61,11 @@ function Forgetpassword({ setForgetPassword }: Props) {
 
           <button
             type="submit"
+            onSubmit={handleSubmit}
             className=" cursor-pointer font-[600] w-full bg-white dark:text-black text-black px-4 text-sm py-2 rounded">
             Send Reset Link
           </button>
-        </form>
+        </div>
         <button
           onClick={() => setForgetPassword(false)}
           className="mt-4 text-sm text-blue-600 hover:underline dark:text-blue-400">

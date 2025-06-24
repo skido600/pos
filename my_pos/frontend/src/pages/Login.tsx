@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { IoMdWarning } from "react-icons/io";
 import { toast } from "sonner";
-import { toastErrorcolor, toastSuccesscolor } from "../util/toastcol";
+import { toastSuccesscolor } from "../util/toastcol";
 import { MdEmail } from "react-icons/md";
 import type { FormData } from "../util/types";
 import Forgetpassword from "../components/Forgetpassword";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [forgetpassword, setForgetpassword] = useState<boolean>(false);
-
+  const [random, setRandom] = useState<string>("");
+  const navigate = useNavigate();
   //password shit
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -29,32 +31,83 @@ function Login() {
 
   const onSubmit = async (data: FormData) => {
     console.log(data);
+    setRandom("");
+    navigate("/admin");
     toast.success("successfully", toastSuccesscolor);
     reset();
   };
   const onError = () => {
-    if (errors.email) {
-      toast.error(errors.email.message, toastErrorcolor);
+    const emailType = errors.email?.type;
+    const passwordType = errors.password?.type;
+
+    if (emailType === "required" && passwordType === "required") {
+      setRandom("Please fill in all the fields");
+    } else if (emailType === "required") {
+      setRandom("Email field can’t be empty.");
+    } else if (emailType === "pattern") {
+      const index = Math.floor(Math.random() * randomEmailerror.length);
+      setRandom(randomEmailerror[index]);
+    } else if (errors.email) {
+      // other email errors like minLength etc.
+      const index = Math.floor(Math.random() * randomEmailerror.length);
+      setRandom(randomEmailerror[index]);
+    } else if (passwordType === "required") {
+      setRandom("Password field can’t be empty.");
     } else if (errors.password) {
-      toast.error(errors.password.message, toastErrorcolor);
+      const index = Math.floor(Math.random() * randomtextpasswordError.length);
+      setRandom(randomtextpasswordError[index]);
     } else {
-      toast.error("Please fill in all the fields.", toastErrorcolor);
+      setRandom("");
     }
   };
+
+  const randomtextpasswordError: string[] = [
+    "Oops! The password you entered is incorrect. Please try again.",
+    "Hmm, that doesn’t look like the right password. Double-check and try again.",
+    "We couldn’t verify your password. Make sure it’s typed correctly.",
+    "Sorry, the password you entered doesn’t match our records.",
+    "That password isn’t quite right. Please re-enter it carefully.",
+    "Looks like that’s not the correct password. Give it another shot.",
+    "Password mismatch. Kindly check and try again.",
+    "We’re unable to log you in with that password. Please try again.",
+    "The password entered is invalid. Please review and try once more.",
+    "Too many failed attempts. Please take a moment and try again.",
+  ];
+
+  const randomEmailerror: string[] = [
+    "Hmm... we couldn't find that email in our admin records. Please double-check.",
+    "This email doesn’t appear to be linked to an admin account.",
+    "Oops! You may have entered the wrong email. Try again, please.",
+    "We’re having trouble verifying this email for admin access.",
+    "This email isn’t authorized for admin login. Please use a registered admin email.",
+    "Sorry, that email isn’t on the list of approved admin users.",
+    "Access restricted. Please use an email associated with an admin account.",
+    "We couldn’t recognize this email. Make sure it’s spelled correctly.",
+    "That email isn’t linked to admin privileges. Try another one.",
+    "Looks like that’s not the right email for admin access. Please verify.",
+  ];
+
   return (
-    <div className="flex justify-center py-12 px-4 h-screen overflow-y-auto  dark:bg-black  items-center   ">
+    <div className="flex justify-center  px-4 h-screen  dark:bg-black  items-center   ">
       <section className=" w-full max-w-xl ">
-        <h1 className="text-black md:text-[40px] text-2xl mb-5 font-bold dark:text-white tracking-[-1px]">
-          Welcome to Waveel Pos
+        <h1 className="text-black md:text-2xl text-2xl mt-5 mb-2 md:mb-4 font-bold dark:text-white tracking-[-1px]">
+          Welcome to Delion Communications Lim
         </h1>
-        <p className="mb-6 text-gray-600 dark:text-gray-300">
-          Sign up below to if you Don’t have account{" "}
-          <Link to="/regiser">
-            {" "}
-            <i className="underline">Register</i>
-          </Link>{" "}
-          build Your business with us
-        </p>
+        <div className="">
+          {random ? (
+            <div className="md:flex  gap-x-2.5">
+              <div className="mb-2 md:mb-0">
+                <IoMdWarning className="text-red-500 " size={30} />{" "}
+              </div>
+              <p className="text-red-600 mb-6">{random}</p>
+            </div>
+          ) : (
+            <p className="mb-6 text-gray-600 dark:text-gray-300">
+              This is only for admins who have the necessary access. If you are
+              not an admin and you see yourself here, please leave.
+            </p>
+          )}
+        </div>
 
         <form onSubmit={handleSubmit(onSubmit, onError)} className="space-y-6">
           <div className="relative ">
