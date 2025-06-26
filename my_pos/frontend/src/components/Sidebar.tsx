@@ -183,16 +183,19 @@ function Sidebar() {
               </li>
             ))}
           </ul>
+
+          <div className="absolute bottom-0 mb-4  dark:border-neutral-800   border-t border-gray-100 pt-4">
+            <div className="flex items-center">
+              <div className="ml-3">
+                <p className="text-sm text-gray-500  dark:text-white">
+                  no user
+                </p>
+              </div>
+            </div>
+          </div>
         </nav>
 
         {/* Bottom Profile */}
-        <div className="absolute bottom-0 mb-4  dark:border-neutral-800   border-t border-gray-100 pt-4">
-          <div className="flex items-center">
-            <div className="ml-3">
-              <p className="text-sm text-gray-500  dark:text-white">no user</p>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );
