@@ -137,28 +137,24 @@ function Sidebar() {
 
       {/* Sidebar */}
       <div
-        className={`h-screen w-65 fixed left-0 top-0 bg-[#FBFBFB] border-r dark:bg-[#000000]   dark:border-neutral-800   border-neutral-200 p-6
-          transform transition-transform overflow-y-auto duration-300 ease-in-out
-          ${
-            isOpen ? "translate-x-0" : "-translate-x-full"
-          } md:translate-x-0 z-50`}>
+        className={`h-screen w-65 fixed left-0 top-0 bg-[#FBFBFB] border-r dark:bg-[#000000] dark:border-neutral-800 border-neutral-200
+    transform transition-transform duration-300 ease-in-out
+    ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 z-50
+    flex flex-col p-6 overflow-y-auto`}>
         {/* Logo */}
         <div className="mb-10">
-          <p className="text-gray-500 text-sm  dark:text-white"></p>
-          <p className="text-2xl text-gray-500 mt-1  dark:text-white">
+          <p className="text-gray-500 text-sm dark:text-white"></p>
+          <p className="text-2xl text-gray-500 mt-1 dark:text-white">
             Admin only
           </p>
         </div>
 
         {/* Menu Items */}
-        <nav className="relative flex flex-col ">
-          {/* Scrollable menu */}
-          <ul className="flex-1 overflow-y-auto pr-1 ">
-            <div>
-              <h1 className="text-gray-600 font-medium font-inter mb-4 dark:text-white">
-                Menu
-              </h1>
-            </div>
+        <nav className="flex flex-col flex-grow">
+          <h1 className="text-gray-600 font-medium font-inter mb-4 dark:text-white">
+            Menu
+          </h1>
+          <ul className="flex-grow">
             {menuItems.map((item) => (
               <li key={item.name}>
                 {item.path ? (
@@ -184,15 +180,12 @@ function Sidebar() {
               </li>
             ))}
           </ul>
-
-          {/* Bottom User Info - sticky */}
         </nav>
-        <div className="mt-auto pt-4 absolute bottom-6 border-t border-gray-100 dark:border-neutral-800">
-          <div className="ml-3">
-            <p className="text-sm text-gray-500 dark:text-white">no user</p>
-          </div>
+
+        {/* Bottom User Info */}
+        <div className="pt-4 border-t border-gray-100 dark:border-neutral-800">
+          <p className="text-sm text-gray-500 dark:text-white ml-2">no user</p>
         </div>
-        {/* Bottom Profile */}
       </div>
     </>
   );
