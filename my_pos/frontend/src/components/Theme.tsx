@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { CiDark, CiLight } from "react-icons/ci";
+import { Button } from "./ui/button";
 
 function Theme() {
   const [theme, setTheme] = useState(() => {
@@ -20,18 +21,16 @@ function Theme() {
   };
 
   return (
-    <div>
-      <button
-        onClick={toggleTheme}
-        aria-label={`switch to ${theme === "dark" ? "light" : "dark"} mode`}
-        className=" shadow-xs px-2 py-1  cursor-pointer rounded dark:shadow-xs hover:bg-[#ddcdcd] dark:bg-[#0b0b0b]">
-        {theme === "dark" ? (
-          <CiDark className="h-5 w-5" />
-        ) : (
-          <CiLight className="h-5 w-5" />
-        )}
-      </button>
-    </div>
+    <Button
+      onClick={toggleTheme}
+      aria-label={`switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      className="px-2 py-1 rounded shadow bg-neutral-500 dark:hover:bg-neutral-500">
+      {theme === "dark" ? (
+        <CiDark className="h-5 w-5" />
+      ) : (
+        <CiLight className="h-5 w-5" />
+      )}
+    </Button>
   );
 }
 

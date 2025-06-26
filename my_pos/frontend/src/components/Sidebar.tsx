@@ -177,10 +177,10 @@ function Sidebar() {
 
         {/* Bottom Profile */}
         <div className="mt-auto pt-4 fixed bottom-0  border-t border-gray-100 dark:border-neutral-800">
-          <div className="ml-3">
-            <p className="text-sm text-gray-500 dark:text-white">no user</p>
+            <div className="ml-3">
+              <p className="text-sm text-gray-500 dark:text-white">no user</p>
+            </div>
           </div>
-        </div>
       </div>
     </>
   );

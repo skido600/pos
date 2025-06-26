@@ -1,34 +1,39 @@
-import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
-import Sidebar from "../components/Sidebar";
+import { Outlet } from "react-router-dom";
+import { SidebarProvider } from "../components/ui/sidebar";
+import { AppSidebar } from "../components/app-sidebar";
 import Topnav from "../components/Topnav";
 import { NavProvider } from "../context/Navcontext";
 import AuthLoader from "../Helper/AuthLoader";
+
 function AdminLayout() {
   return (
-    <NavProvider>
-      <div className="min-h-screen flex">
-        {/* Sidebar */}
-        <div className="fixed left-0 top-0 h-screen w-65 z-50">
-          <Sidebar />
-        </div>
+    <SidebarProvider>
+      <NavProvider>
+        {/* Main container */}
+        <div className="min-h-screen flex">
+          {/* Sidebar Column (fixed on desktop) */}
+          <div className="fixed left-0 top-0 h-screen  w-65 z-50">
+            <AppSidebar />
+          </div>
 
-        {/* Main Content Area */}
-        <div className="flex-1 md:ml-[260px] w-full">
-          <Suspense fallback={<AuthLoader />}>
-            {/* Top Navigation */}
-            <div className="fixed top-0 right-0 z-40 w-full md:w-[calc(100%-260px)] ml-auto bg-[#fafafa] dark:bg-[#000000] border-b border-neutral-200 dark:border-neutral-900">
+          {/* Main Content Column */}
+          <div className="flex-1 md:ml-[240px] w-full">
+            {/* Sticky Top Navigation */}
+            <header className="fixed top-0 right-0 z-40 w-full md:w-[calc(100%-240px)] ml-auto border-b border-neutral-200 dark:border-neutral-900">
               <Topnav />
-            </div>
+            </header>
 
-            {/* Page Content */}
-            <div className="pt-24 md:pt-28 p-4 md:p-6">
-              <Outlet />
-            </div>
-          </Suspense>
+            {/* Scrollable Content Area */}
+            <main className="pt-24 md:pt-24 p-4 md:p-6">
+              <Suspense fallback={<AuthLoader />}>
+                <Outlet />
+              </Suspense>
+            </main>
+          </div>
         </div>
-      </div>
-    </NavProvider>
+      </NavProvider>
+    </SidebarProvider>
   );
 }
 
