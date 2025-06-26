@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 // import { toast } from "sonner";
 // import { CgMenuRight } from "react-icons/cg";
 import { FiHome, FiBox, FiX } from "react-icons/fi";
@@ -12,9 +12,9 @@ import { useNav } from "../context/Navcontext";
 
 function Sidebar() {
   const { isOpen, closeSidebar } = useNav();
-  const [user, setUser] = useState<{ email: string; role: string } | null>(
-    null
-  );
+  //   const [user, setUser] = useState<{ email: string; role: string } | null>(
+  //     null
+  //   );
   const token = localStorage.getItem("token");
   const handleLogout = async () => {
     try {
@@ -62,6 +62,18 @@ function Sidebar() {
     }
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto"; // cleanup
+    };
+  }, [isOpen]);
+
   const menuItems = [
     {
       name: "update",
@@ -96,17 +108,17 @@ function Sidebar() {
     },
   ];
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      try {
-        const parsedUser = JSON.parse(storedUser);
-        setUser(parsedUser);
-      } catch (error) {
-        console.error("Error parsing user from localStorage:", error);
-      }
-    }
-  }, []);
+  //   useEffect(() => {
+  //     const storedUser = localStorage.getItem("user");
+  //     if (storedUser) {
+  //       try {
+  //         const parsedUser = JSON.parse(storedUser);
+  //         setUser(parsedUser);
+  //       } catch (error) {
+  //         console.error("Error parsing user from localStorage:", error);
+  //       }
+  //     }
+  //   }, []);
 
   return (
     <>
@@ -177,22 +189,7 @@ function Sidebar() {
         <div className="absolute bottom-0 mb-4  dark:border-neutral-800   border-t border-gray-100 pt-4">
           <div className="flex items-center">
             <div className="ml-3">
-              {user ? (
-                <>
-                  <p className="text-sm text-gray-500 truncate  dark:text-white">
-                    {user.email.length > 20
-                      ? user.email.slice(0, 20) + "..."
-                      : user.email}
-                  </p>
-                  <p className="text-xs  dark:text-white text-gray-400">
-                    {user.role.toUpperCase()}
-                  </p>
-                </>
-              ) : (
-                <p className="text-sm text-gray-500  dark:text-white">
-                  no user
-                </p>
-              )}
+              <p className="text-sm text-gray-500  dark:text-white">no user</p>
             </div>
           </div>
         </div>
