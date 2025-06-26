@@ -151,7 +151,7 @@ function Sidebar() {
         </div>
 
         {/* Menu Items */}
-        <nav className="relative flex flex-col h-full">
+        <nav className="relative flex flex-col ">
           {/* Scrollable menu */}
           <ul className="flex-1 overflow-y-auto pr-1 ">
             <div>
@@ -186,13 +186,12 @@ function Sidebar() {
           </ul>
 
           {/* Bottom User Info - sticky */}
-          <div className="mt-auto pt-4 border-t border-gray-100 dark:border-neutral-800">
-            <div className="ml-3">
-              <p className="text-sm text-gray-500 dark:text-white">no user</p>
-            </div>
-          </div>
         </nav>
-
+        <div className="mt-auto pt-4 absolute bottom-6 border-t border-gray-100 dark:border-neutral-800">
+          <div className="ml-3">
+            <p className="text-sm text-gray-500 dark:text-white">no user</p>
+          </div>
+        </div>
         {/* Bottom Profile */}
       </div>
     </>
