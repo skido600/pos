@@ -51,4 +51,40 @@ body {
   to {
     background-size: 120% 100%;
   }
+} /* Base scrollbar styles for light mode */
+* {
+  scrollbar-width: none;
+  scrollbar-color: #f0f0f0 #f0f0f0;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  border: 2px solid #f0f0f0;
+}
+
+/* Tailwind's dark mode */
+
+/* Tailwind's dark mode */
+:where([data-theme="dark"], .dark) * {
+  scrollbar-color: #000000 #000000;
+}
+
+:where([data-theme="dark"], .dark) ::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+:where([data-theme="dark"], .dark) ::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 10px;
+  border: 2px solid transparent;
 }

@@ -151,10 +151,11 @@ function Sidebar() {
         </div>
 
         {/* Menu Items */}
-        <nav className="h-[80vh] md:h-auto overflow-y-auto">
-          <ul>
+        <nav className="relative flex flex-col h-full">
+          {/* Scrollable menu */}
+          <ul className="flex-1 overflow-y-auto pr-1 ">
             <div>
-              <h1 className="text-gray-600 font-medium font-inter mb-4  dark:text-white">
+              <h1 className="text-gray-600 font-medium font-inter mb-4 dark:text-white">
                 Menu
               </h1>
             </div>
@@ -163,18 +164,18 @@ function Sidebar() {
                 {item.path ? (
                   <Link
                     to={item.path}
-                    className="flex items-center md:py-3 md:px-0 py-3 px-2 rounded-lg transition-all hover:dark:bg-gray-400 hover:px-2  dark:text-white text-gray-600"
+                    className="flex items-center md:py-3 md:px-0 py-3 px-2 rounded-lg transition-all hover:dark:bg-gray-400 hover:px-2 dark:text-white text-gray-600"
                     onClick={closeSidebar}>
                     <span className="mr-3 text-xl">{item.icon}</span>
-                    <span className="font-medium font-inter  dark:text-white">
+                    <span className="font-medium font-inter dark:text-white">
                       {item.name}
                     </span>
                   </Link>
                 ) : (
                   <button
                     onClick={item.action}
-                    className="flex items-center w-full md:py-3  dark:text-white md:px-0 py-3 px-2 rounded-lg transition-all  text-gray-600  hover:dark:bg-gray-400 hover:px-2 ">
-                    <span className="mr-3 text-xl  dark:text-white">
+                    className="flex items-center w-full md:py-3 dark:text-white md:px-0 py-3 px-2 rounded-lg transition-all text-gray-600 hover:dark:bg-gray-400 hover:px-2">
+                    <span className="mr-3 text-xl dark:text-white">
                       {item.icon}
                     </span>
                     <span className="font-medium font-inter">{item.name}</span>
@@ -184,13 +185,10 @@ function Sidebar() {
             ))}
           </ul>
 
-          <div className="absolute bottom-0 mb-4  dark:border-neutral-800   border-t border-gray-100 pt-4">
-            <div className="flex items-center">
-              <div className="ml-3">
-                <p className="text-sm text-gray-500  dark:text-white">
-                  no user
-                </p>
-              </div>
+          {/* Bottom User Info - sticky */}
+          <div className="mt-auto pt-4 border-t border-gray-100 dark:border-neutral-800">
+            <div className="ml-3">
+              <p className="text-sm text-gray-500 dark:text-white">no user</p>
             </div>
           </div>
         </nav>
