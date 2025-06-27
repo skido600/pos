@@ -11,17 +11,17 @@ import {
   SidebarHeader,
   useSidebar,
 } from "../components/ui/sidebar";
-import { FiHome, FiBox } from "react-icons/fi";
+import { FiHome } from "react-icons/fi";
 import { IoIosLogOut } from "react-icons/io";
 import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
-import { SiShutterstock } from "react-icons/si";
-import { SiCoinmarketcap } from "react-icons/si";
+// import { SiShutterstock } from "react-icons/si";
+// import { SiCoinmarketcap } from "react-icons/si";
 
 const handleLogout = async () => {
   //   try {
-  // const response = await fetch("api", {
+  // const response = await fetch("api", {  FiBox
   //   headers: {
   //     "Content-Type": "application/json",
   //     Authorization: `Bearer ${token}`,
@@ -71,25 +71,25 @@ const menuItems = [
     path: "/admin",
   },
   {
-    name: "All product",
+    name: "All product /Management",
     icon: MdOutlineProductionQuantityLimits,
     path: "/all",
   },
-  {
-    name: "Avaliable product",
-    icon: FiBox,
-    path: "/avalable",
-  },
-  {
-    name: "Out of stock",
-    icon: SiShutterstock,
-    path: "/stock",
-  },
-  {
-    name: "market sales",
-    icon: SiCoinmarketcap,
-    path: "/market",
-  },
+  //   {
+  //     name: "Avaliable product",
+  //     icon: FiBox,
+  //     path: "/avalable",
+  //   },
+  //   {
+  //     name: "Out of stock",
+  //     icon: SiShutterstock,
+  //     path: "/stock",
+  //   },
+  //   {
+  //     name: "market sales",
+  //     icon: SiCoinmarketcap,
+  //     path: "/market",
+  //   },
 
   {
     name: "Logout",
@@ -137,7 +137,7 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="border-t  text-sm border-neutral-200 dark:border-neutral-900">
+      <SidebarFooter className="border-t border-neutral-200 dark:border-[#ffffff1a]">
         username
       </SidebarFooter>
     </Sidebar>

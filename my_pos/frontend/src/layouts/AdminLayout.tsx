@@ -20,12 +20,12 @@ function AdminLayout() {
           {/* Main Content Column */}
           <div className="flex-1 md:ml-[240px] w-full">
             {/* Sticky Top Navigation */}
-            <header className="fixed top-0 right-0 z-40 w-full md:w-[calc(100%-240px)] ml-auto border-b border-neutral-200 dark:border-neutral-900">
+            <header className="fixed top-0 right-0 z-40 w-full md:w-[calc(100%-240px)] ml-auto border-b border-neutral-200 dark:border-[#ffffff1a]">
               <Topnav />
             </header>
 
             {/* Scrollable Content Area */}
-            <main className="pt-24 md:pt-24 p-4 md:p-6">
+            <main className="pt-24 md:pt-24 p-4  md:p-6">
               <Suspense fallback={<AuthLoader />}>
                 <Outlet />
               </Suspense>

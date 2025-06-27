@@ -11,7 +11,7 @@ function Topnav() {
           <Theme />
         </li>
         <li className="md:hidden">
-          <SidebarTrigger />
+          <SidebarTrigger className="" />
         </li>
       </ul>
     </nav>

@@ -39,7 +39,7 @@ function Signup() {
   };
 
   return (
-    <div className="flex justify-center py-12 px-4  h-screen overflow-y-auto dark:bg-black items-center">
+    <div className="flex justify-center py-12 px-4  h-screen overflow-y-auto dark:bg-[#0a0a0a] items-center">
       <section className="w-full max-w-xl">
         <h1 className="text-black md:text-[40px] text-2xl mb-4 font-bold dark:text-white tracking-[-1px]">
           Register to Waveel Pos
