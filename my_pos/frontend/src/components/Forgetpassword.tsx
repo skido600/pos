@@ -2,6 +2,7 @@ import { MdEmail } from "react-icons/md";
 import { useState, type Dispatch, type SetStateAction } from "react";
 import { toastErrorcolor, toastSuccesscolor } from "../util/toastcol";
 import { toast } from "sonner";
+import { Button } from "./ui/button";
 
 type Props = {
   setForgetPassword: Dispatch<SetStateAction<boolean>>;
@@ -59,12 +60,11 @@ function Forgetpassword({ setForgetPassword }: Props) {
             />
           </div>
 
-          <button
-            type="submit"
-            onSubmit={handleSubmit}
-            className=" cursor-pointer font-[600] w-full bg-white dark:text-black text-black px-4 text-sm py-2 rounded">
+          {/* <button className=" cursor-pointer font-[600] w-full bg-white dark:text-black text-black px-4 text-sm py-2 rounded"></button> */}
+          <Button type="submit" onSubmit={handleSubmit} className="py-2 px-4">
+            {" "}
             Send Reset Link
-          </button>
+          </Button>
         </div>
         <button
           onClick={() => setForgetPassword(false)}

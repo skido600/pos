@@ -8,6 +8,7 @@ import { MdEmail } from "react-icons/md";
 import type { FormData } from "../util/types";
 import Forgetpassword from "../components/Forgetpassword";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../components/ui/button";
 
 function Login() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -162,13 +163,13 @@ function Login() {
             <Forgetpassword setForgetPassword={setForgetpassword} />
           )}
 
-          <button
-            type="submit"
-            className="bg-black cursor-pointer font-[600] w-full dark:bg-white dark:text-black text-white px-4 text-sm py-4 rounded">
+          {/* <button className="bg-black cursor-pointer font-[600] w-full dark:bg-white dark:text-black text-white px-4 text-sm py-4 rounded">
+            {" "}
+          </button> */}
+          <Button type="submit" className="w-full py-4">
             {" "}
             Login in
-          </button>
-
+          </Button>
           {/* terms */}
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
             By continuing, you agree to our{" "}
