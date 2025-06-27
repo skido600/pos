@@ -72,6 +72,42 @@ function Table_main() {
       qrcode: "338812ddfeu29292929",
       avatar: "https://i.pravatar.cc/24?img=2",
     },
+    {
+      id: "#3066",
+      name: "Ifeoluwa Johnson",
+      Sales: "22",
+      avaliable: 3,
+      serial_number: 2637456262,
+      qrcode: "338812ddfeu29292929",
+      avatar: "https://i.pravatar.cc/24?img=2",
+    },
+    {
+      id: "#3066",
+      name: "Ifeoluwa Johnson",
+      Sales: "22",
+      avaliable: 3,
+      serial_number: 2637456262,
+      qrcode: "338812ddfeu29292929",
+      avatar: "https://i.pravatar.cc/24?img=2",
+    },
+    {
+      id: "#3066",
+      name: "Ifeoluwa Johnson",
+      Sales: "22",
+      avaliable: 3,
+      serial_number: 2637456262,
+      qrcode: "338812ddfeu29292929",
+      avatar: "https://i.pravatar.cc/24?img=2",
+    },
+    {
+      id: "#3066",
+      name: "Ifeoluwa Johnson",
+      Sales: "22",
+      avaliable: 3,
+      serial_number: 2637456262,
+      qrcode: "338812ddfeu29292929",
+      avatar: "https://i.pravatar.cc/24?img=2",
+    },
   ];
 
   const filteredProjects = mockProjects.filter((project) => {
@@ -126,10 +162,10 @@ function Table_main() {
                           alt={project.name}
                           className="w-8 h-8 rounded-full object-cover"
                         />
-                        <span>{project.name}</span>
+                        <span className="truncate">{project.name}</span>
                       </div>
                     </TableCell>
-                    <TableCell>
+                    <TableCell className="pl-2">
                       <span
                         className={`px-2 py-1 rounded-full text-xs font-medium ${
                           isLowStock
