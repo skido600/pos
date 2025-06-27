@@ -36,7 +36,7 @@ function AllProduct() {
   return (
     <>
       <div className="p-4 sm:p-6 space-y-6">
-        <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <header className="">
           <div>
             <h1 className="text-2xl font-bold">📦 Stock</h1>
             <p className="text-gray-500 text-sm">Manage your stock</p>
@@ -47,8 +47,9 @@ function AllProduct() {
 
         {/* Optional search component */}
         {/* <ProjectSearch onChange={() => {}} /> */}
+
+        <Table_main />
       </div>
-      <Table_main />
     </>
   );
 }
